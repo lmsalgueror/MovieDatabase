@@ -1,31 +1,35 @@
-import { watchListArray } from "./index.js"
+console.log("hola mundo")
+let newWatchList = localStorage.getItem('watchListArray')
+console.log(newWatchList)
+let newArray = JSON.parse(newWatchList)
 
 function renderWatchList() {
-    for (let t = 0; t < watchListArray.length; t++) {
-        document.getElementById("watchlist-movie-section").innerHTML = `<div id="movies-list-section" class="flex-organizer movie-list">
+    document.getElementById("watchlist-movie-section").innerHTML = " "
+    for (let t = 0; t < newArray.length; t++) {
+        document.getElementById("watchlist-movie-section").innerHTML += `<div id="movies-list-section" class="flex-organizer movie-list">
         <div id="img-movie">
-            <img src=${watchListArray[t].poster} class="img-movie">
+            <img src=${newArray[t].poster} class="img-movie">
         </div>
 
         <div id="movie-info" class="movie-info movie-list">
             <div class="flex-organizer">
-                <p id="movie-title" class="movie-title">${watchListArray[t].name}</p>
+                <p id="movie-title" class="movie-title">${newArray[t].name}</p>
                 <div class="flex-organizer">
                 <i class="fa-solid fa-star"></i>
-                <p id="movie-score" class="light-subtitles">${watchListArray[t].score}</p>
+                <p id="movie-score" class="light-subtitles">${newArray[t].score}</p>
                 </div>
             </div>
             <div class="flex-organizer">
-                <p id="movie-duration" class="light-subtitles">${watchListArray[t].duration}</p>
-                <p id="movie-category" class="light-subtitles">${watchListArray[t].genre}</p>
+                <p id="movie-duration" class="light-subtitles">${newArray[t].duration}</p>
+                <p id="movie-category" class="light-subtitles">${newArray[t].genre}</p>
                 <div class="flex-organizer">
-                    <i class="fa-regular fa-circle-plus plus-watch-list" id=${watchListArray[t].imdbID}></i>
-                    <p class="light-subtitles">Watchlist</p>
+                    <i class="fa-solid fa-circle-minus plus-watch-list" id=${newArray[t].imdbID}></i>
+                    <p class="light-subtitles">Remove</p>
                 </div>
             </div>
 
             <div id="movie-summary" class="movie-summary">
-            <p>${watchListArray[t].plot}</p></div>
+            <p>${newArray[t].plot}</p></div>
         </div>
     </div>
 
@@ -36,4 +40,6 @@ function renderWatchList() {
 
 }
 
-renderWatchList()
+if (newArray.length != 0) {
+    renderWatchList()
+}
