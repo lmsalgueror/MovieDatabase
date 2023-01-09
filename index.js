@@ -16,6 +16,7 @@ async function searchMovie(movieTitle) {
     movieArray = movieArray.map(movie => movie.imdbID)
     console.log(movieArray)
     let idPath = ""
+    document.getElementById("movie-section").innerHTML = " "
 
     for (let i = 0; i < movieArray.length; i++) {
         idPath = `i=${movieArray[i]}`
@@ -23,38 +24,55 @@ async function searchMovie(movieTitle) {
         fetch(`${url}${idPath}`)
             .then(res => res.json())
             .then(data => {
-                document.getElementById("movie-section").innerHTML += `<div id="movies-list-section">
-                <div id="img-movie">
-                <img src=${data.Poster}>
+                    document.getElementById("movie-section").innerHTML +=
+                        `<div id="movies-list-section" class="flex-organizer movie-list">
+                        <div id="img-movie">
+                            <img src=${data.Poster} class="img-movie">
+                        </div>
     
-                </div>
-    
-                <div id="movie-info">
-                    <div>
-                        <h1 id="movie-title">${data.Title}</h1>
-                        <i></i>
-                        <p id="movie-score">${data.imdbRating}</p>
-                    </div>
-                    <div>
-                        <p id="movie-duration">${data.Runtime}</p>
-                        <p id="movie-category">${data.Genre}</p>
-                        <div>
-                            <i></i>
-                            <p>Watchlist</p>
+                        <div id="movie-info" class="movie-info movie-list">
+                            <div class="flex-organizer">
+                                <p id="movie-title" class="movie-title">${data.Title}</p>
+                                <div class="flex-organizer">
+                                <i class="fa-solid fa-star"></i>
+                                <p id="movie-score" class="light-subtitles">${data.imdbRating}</p>
+                                </div>
+                            </div>
+                            <div class="flex-organizer">
+                                <p id="movie-duration" class="light-subtitles">${data.Runtime}</p>
+                                <p id="movie-category" class="light-subtitles">${data.Genre}</p>
+                                <div class="flex-organizer">
+                                    <i class="fa-regular fa-circle-plus plus-watch-list" id="plus-watch-list-${data.imdbID}"></i>
+                                    <p class="light-subtitles">Watchlist</p>
+                                </div>
+                            </div>
+            
+                            <div id="movie-summary" class="movie-summary">
+                            <p>${data.Plot}</p></div>
                         </div>
                     </div>
     
-                    <div id="movie-summary">
-                    <p>${data.Plot}</p></div>
-                </div>
-            </div>
-    
-            <div class="separator-line"></div>`
+                    <div class="separator-line">
+                    </div>`
 
-                console.log(data)
-            })
+                    console.log(data)
+
+                }
+
+            )
+
     }
 
 
 
+
+
+
+
+}
+
+function addToWatchList(id) {
+    document.getElementById(id).addEventListener("click", function() {
+        console.log("funciona")
+    })
 }

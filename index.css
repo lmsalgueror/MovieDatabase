@@ -1,131 +1,215 @@
-html,
-body {
-    font-family: 'Inter', sans-serif;
-}
-
-
-/*Layouts*/
-
-body {
-    max-width: 700px;
-    height: 800px;
-    margin: 0 auto;
-}
-
-header {
-    background-image: url(img/1.png);
-    background-size: cover;
-    height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-}
-
-.banner-logo-section {
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px;
-}
-
-.search-bar-section {
-    display: flex;
-    justify-content: space-between;
-    max-width: 600px;
-    height: 40px;
-    margin: -20px auto;
-    background-color: white;
-    border-radius: 6px;
-}
-
-.search-bar {
-    display: flex;
-    align-items: center;
-    border: #D1D5DB 1px solid;
-    border-radius: 6px;
-    margin-right: -10px;
-}
-
-.search-input {
-    width: 450px;
-    height: 30px;
-    border: none;
-    font-size: 14px;
-}
-
-.movie-section {
-    width: 600px;
-    height: 600px;
-    margin: 30px auto;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.home-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-
-/*Typo*/
-
-.banner-logo-section h1 {
-    font-weight: 800;
-}
-
-header p {
-    font-size: 1rem;
-    font-weight: 700;
-}
-
-.search-bar i {
-    font-size: 1rem;
-    padding: 0 10px 0 15px;
-    color: #9CA3AF;
-}
-
-.home-screen {
-    color: #DFDDDD;
-    font-weight: 700;
-    font-size: 20px;
-}
-
-.home-screen i {
-    font-size: 80px;
-}
-
-
-/*Images*/
-
-.logo {
-    width: 200px;
-}
-
-
-/*Buttons*/
-
-.watchlist-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 150px;
-    height: 35px;
-    background-color: #FFDE59;
-    border-radius: 20px;
-}
-
-.search-btn {
-    width: 150px;
-    height: 40px;
-    border: 1px solid #D1D5DB;
-    border-radius: 0 6px 6px 0;
-    background-color: #F9FAFB;
-    font-size: 14px;
-    font-weight: 500;
-}
+    html,
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+    /*Layouts*/
+    
+    body {
+        max-width: 700px;
+        min-height: 1000px;
+        margin: 0 auto;
+        border: 2px solid #e06781;
+    }
+    
+    header {
+        background-image: url(img/1.png);
+        background-size: cover;
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    
+    .banner-logo-section {
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+    }
+    
+    .search-bar-section {
+        display: flex;
+        justify-content: space-between;
+        max-width: 600px;
+        height: 40px;
+        margin: -20px auto;
+        background-color: white;
+        border-radius: 6px;
+    }
+    
+    .search-bar {
+        display: flex;
+        align-items: center;
+        border: #D1D5DB 1px solid;
+        border-radius: 6px;
+        margin-right: -10px;
+    }
+    
+    .search-input {
+        width: 450px;
+        height: 30px;
+        border: none;
+        font-size: 14px;
+    }
+    
+    .movie-section {
+        width: 600px;
+        min-height: 600px;
+        margin: 30px auto;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: scroll;
+    }
+    
+    .home-screen {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .movie-info {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .flex-organizer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .movie-summary {
+        height: 60px;
+    }
+    
+    .separator-line {
+        width: 600px;
+        border-top: 1.5px dotted pink;
+        margin: 20px 0;
+    }
+    
+    .movie-list {
+        width: 600px;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .plus-watch-list {
+        cursor: pointer;
+    }
+    
+    .plus-watch-list:hover {
+        color: #e06781;
+    }
+    /*Typo*/
+    
+    .banner-logo-section h1 {
+        font-weight: 800;
+    }
+    
+    header p {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    
+    .search-bar i {
+        font-size: 1rem;
+        padding: 0 10px 0 15px;
+        color: #9CA3AF;
+    }
+    
+    .home-screen {
+        color: #DFDDDD;
+        font-weight: 700;
+        font-size: 20px;
+    }
+    
+    .home-screen i {
+        font-size: 80px;
+    }
+    
+    .movie-title {
+        font-size: 18px;
+        font-weight: 500;
+    }
+    
+    .movie-title:hover {
+        color: #e06781;
+    }
+    
+    .light-subtitles {
+        color: #111827;
+        font-size: 12px;
+        font-weight: 400;
+    }
+    
+    .fa-star {
+        color: #FFDE59;
+    }
+    
+    .fa-circle-plus {
+        color: #111827;
+        font-weight: 500;
+    }
+    
+    .home-screen .fa-circle-plus {
+        color: #363636;
+        font-size: 20px;
+        margin-right: 10px;
+    }
+    
+    .movie-summary {
+        color: #6B7280;
+        font-weight: 400;
+        font-size: 14px;
+    }
+    
+    .text-black {
+        color: #363636;
+    }
+    
+    a:link {
+        text-decoration: none;
+        color: black;
+    }
+    
+    a:visited {
+        color: black;
+        text-decoration: none;
+    }
+    /*Images*/
+    
+    .logo {
+        width: 200px;
+    }
+    
+    .img-movie {
+        width: 100px;
+        margin-right: 20px;
+    }
+    /*Buttons*/
+    
+    .watchlist-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 150px;
+        height: 35px;
+        background-color: #FFDE59;
+        border-radius: 20px;
+    }
+    
+    .search-btn {
+        width: 150px;
+        height: 40px;
+        border: 1px solid #D1D5DB;
+        border-radius: 0 6px 6px 0;
+        background-color: #F9FAFB;
+        font-size: 14px;
+        font-weight: 500;
+    }
