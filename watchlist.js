@@ -1,12 +1,16 @@
-console.log("hola mundo")
 let newWatchList = localStorage.getItem('watchListArray')
-console.log(newWatchList)
 let newArray = JSON.parse(newWatchList)
 
+/*Assigning elements */
+let watchlistMovieSection = document.getElementById("watchlist-movie-section")
+let findFilmBtn = document.getElementById("find-film-button")
+let idMovies = []
+
 function renderWatchList() {
-    document.getElementById("watchlist-movie-section").innerHTML = " "
+    watchlistMovieSection.innerHTML = " "
+    let watchlistCard = document.createElement("div")
     for (let t = 0; t < newArray.length; t++) {
-        document.getElementById("watchlist-movie-section").innerHTML += `<div id="movies-list-section" class="flex-organizer movie-list">
+        watchlistCard.innerHTML += `<div id="movies-list-section" class="flex-organizer movie-list">
         <div id="img-movie">
             <img src=${newArray[t].poster} class="img-movie">
         </div>
@@ -38,8 +42,34 @@ function renderWatchList() {
 
     }
 
+    return watchlistCard
+
 }
 
 if (newArray.length != 0) {
-    renderWatchList()
+    watchlistMovieSection.appendChild(renderWatchList())
+
+    for (let i = 0; i < newArray.length; i++) {
+        idMovies.push(document.getElementById(newArray[i].imdbID))
+        console.log(idMovies)
+    }
+    removeFilm()
+}
+
+findFilmBtn.addEventListener("click", openFindFilm)
+
+function openFindFilm() {
+    localStorage.setItem('watchListArray', JSON.stringify(newArray))
+    console.log(newArray)
+    window.open('index.html', "_self")
+}
+
+function removeFilm() {
+    idMovies.forEach(idMovieElement => idMovieElement.addEventListener("click", function() {
+        console.log("remueve la movie")
+        let movieToRemove = newArray.find(element => element.imdbID === idMovieElement.getAttribute("id"))
+        console.log(movieToRemove)
+        newArray.pop(movieToRemove)
+        console.log(newArray)
+    }))
 }

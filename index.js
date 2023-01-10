@@ -10,6 +10,13 @@ let movieElements = []
 let allMovies = []
 let watchListArray = []
 
+// if (watchListArray.length != 0) {
+//     let newArray = localStorage.getItem('watchListArray')
+//     watchListArray = JSON.parse(newArray)
+//     console.log("lina")
+//     console.log(watchListArray)
+// }
+
 if (searchBtn) {
     searchBtn.addEventListener("click", function() { searchMovie(searchInput.value) });
 }
