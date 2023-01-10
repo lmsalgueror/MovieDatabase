@@ -10,7 +10,8 @@ function renderWatchList() {
     watchlistMovieSection.innerHTML = " "
     let watchlistCard = document.createElement("div")
     for (let t = 0; t < newArray.length; t++) {
-        watchlistCard.innerHTML += `<div id="movies-list-section" class="flex-organizer movie-list">
+        watchlistCard.innerHTML += `<div id="movies-elements-${newArray[t].imdbID}">
+        <div id="movies-list-section-${newArray[t].imdbID}" class="flex-organizer movie-list">
         <div id="img-movie">
             <img src=${newArray[t].poster} class="img-movie">
         </div>
@@ -38,7 +39,8 @@ function renderWatchList() {
     </div>
 
     <div class="separator-line">
-    </div>`
+    </div></div>`
+
 
     }
 
@@ -68,6 +70,7 @@ function removeFilm() {
     idMovies.forEach(idMovieElement => idMovieElement.addEventListener("click", function() {
         console.log("remueve la movie")
         let movieToRemove = newArray.find(element => element.imdbID === idMovieElement.getAttribute("id"))
+        document.getElementById(`movies-elements-${idMovieElement.getAttribute("id")}`).removeChild(document.getElementById(`movies-list-section-${idMovieElement.getAttribute("id")}`))
         console.log(movieToRemove)
         newArray.pop(movieToRemove)
         console.log(newArray)

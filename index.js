@@ -8,7 +8,8 @@ let movieArray = []
 const url = "http://www.omdbapi.com/?apikey=3c9105c1&"
 let movieElements = []
 let allMovies = []
-let watchListArray = []
+let newArray = localStorage.getItem('watchListArray')
+let watchListArray = JSON.parse(newArray)
 
 // if (watchListArray.length != 0) {
 //     let newArray = localStorage.getItem('watchListArray')
